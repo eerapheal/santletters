@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "@/src/shared/widgets/header/Header";
+import Header from "@/src/shared/widgets/header/header";
 import Footer from "@/src/shared/widgets/footer/Footer";
 const HomePage = () => {
   return (
