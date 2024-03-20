@@ -1,7 +1,8 @@
 import Image from "next/image";
+import HomePage from "../modules/home/HomePage";
 
 export default function Home() {
   return (
-    <div>page</div>
+    <div><HomePage /> </div>
       );
 }

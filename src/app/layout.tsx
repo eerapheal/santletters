@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
-
+import "../shared/styles/globals.css"
 export const metadata: Metadata = {
   title: "Sant News Letters",
   description: "Sant News Letters allows users to build codeless customs news letter email templete and send unlimited emails to subcribers",
