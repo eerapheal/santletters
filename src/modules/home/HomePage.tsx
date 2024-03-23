@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "@/src/shared/widgets/header/header";
 import Footer from "@/src/shared/widgets/footer/Footer";
+import Banner from "./features/Banner";
 const HomePage = () => {
   return (
     <div>
@@ -9,7 +10,7 @@ const HomePage = () => {
       </header>
       <main>
         <section>
-          content
+          <Banner />
         </section>
       </main>
       <footer>
