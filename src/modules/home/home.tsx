@@ -3,6 +3,7 @@ import Header from "../../shared/widgets/header/header"
 import Footer from "../../shared/widgets/footer/Footer";
 import Banner from "./features/Banner";
 import Branding from "./elements/Branding";
+import Benefits from "./elements/benefits";
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
         <section>
           <Banner />
           <Branding />
+          <Benefits />
         </section>
       </main>
       <Footer />
