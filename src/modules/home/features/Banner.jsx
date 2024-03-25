@@ -31,7 +31,7 @@ const Banner = () => {
             }}
             className="text-3xl text-center lg:text-4xl"
           >
-            our Newsletter Platform is Tailored for Success.
+            Our Newsletter Platform is Tailored for Success.
           </h3>
           <br />
           <div className="flex w-full justify-center">
