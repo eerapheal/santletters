@@ -8,7 +8,7 @@ const Logo = () => {
         width="70"
         height="70"
         viewBox="0 0 100 100"
-        className="mb-[20px]"
+        className="mb-5"
       >
         {/*wing  */}
         <path
@@ -22,8 +22,8 @@ const Logo = () => {
         {/* beak  */}
         <path d="M50 45l5 5-5 5-5-5z" fill="#FFC300" />
       </svg>
-      <h5 className="absolute right-[-45px] xl:right-[-35px] text-blue-600 font-medium text-2xl">
-        santletters
+      <h5 className="absolute  text-blue-700 font-medium text-3xl md:text-4xl">
+        Santletters
       </h5>
     </div>
   );

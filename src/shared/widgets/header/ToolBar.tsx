@@ -6,10 +6,10 @@ import Link from "next/link";
 const ToolBar = () => {
   return (
     <div className="flex items-center gap-3">
-      <Button color="primary" className="text-lg">
+      <Button color="primary" className="font-[400] md:font-[500] text-lg">
         Start Trial
       </Button>
-      <Link href={"/sign-up"} className=" text-xl md:text-lg">
+      <Link href={"/sign-up"} className="font-[400] md:font-[500] text-xl md:text-lg">
         Login
       </Link>
     </div>

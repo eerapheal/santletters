@@ -6,7 +6,7 @@ const NavItems = () => {
   return (
     <div className="w-full hidden md:flex gap-5 items-center">
       {navItems.map((i: NavItems, index: number) => (
-        <Link key={index} href={"/"} className="text-lg">
+        <Link key={index} href={"/"} className="text-lg font-[600]">
           {i.title}
         </Link>
       ))}

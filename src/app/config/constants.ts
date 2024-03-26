@@ -36,7 +36,7 @@ export const partners: PartnersTypes[] = [
 
 export const freePlan: PlanType[] = [
   {
-    title: "Up to 2,500 subscribers",
+    title: "Up to 3,000 subscribers",
   },
   {
     title: "Unlimited sends",
@@ -46,12 +46,12 @@ export const freePlan: PlanType[] = [
   },
   {
     title: "Newsletter analytics",
-  },
+  }
 ];
 
 export const GrowPlan: PlanType[] = [
   {
-    title: "Up to 10,000 subscribers",
+    title: "Up to 15,000 subscribers",
   },
   {
     title: "Custom domains",
@@ -60,19 +60,22 @@ export const GrowPlan: PlanType[] = [
     title: "API access",
   },
   {
+    title: "ADs free",
+  },
+  {
+    title: "API integration support",
+  },
+  {
     title: "Newsletter community",
   },
 ];
 
 export const scalePlan: PlanType[] = [
   {
-    title: "Up to 100,000 subscribers",
+    title: "Up to 150,000 subscribers",
   },
   {
-    title: "Referal program",
-  },
-  {
-    title: "AI support",
+    title: "Referral program",
   },
   {
     title: "Advanced support system",
@@ -131,7 +134,7 @@ export const subscribersData: subscribersDataTypes[] = [
     _id: "64f717a45331088de2ce886c",
     email: "ralph@gmail.com",
     createdAt: "5Feb 2024",
-    source: "Becodemy website",
+    source: "Santletters website",
     status: "subscribed",
   },
   {
