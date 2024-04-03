@@ -21,16 +21,16 @@ export const partners: PartnersTypes[] = [
     url: "https://mumbrella.com.au/wp-content/uploads/2019/05/10daily_NWB.jpg",
   },
   {
-    url: "https://seekvectorlogo.com/wp-content/uploads/2018/11/clickhole-vector-logo.png",
+    url: "https://as1.ftcdn.net/v2/jpg/05/42/42/82/1000_F_542428260_vcubF3anWUTOsdYJGmEwJHexB6WKcxVg.jpg",
   },
   {
     url: "https://seekvectorlogo.com/wp-content/uploads/2018/11/clickhole-vector-logo.png",
   },
   {
-    url: "https://mumbrella.com.au/wp-content/uploads/2019/05/10daily_NWB.jpg",
+    url: "https://thumbs.dreamstime.com/b/newsletter-text-written-over-blue-background-newsletter-blue-texture-blocks-127782740.jpg",
   },
   {
-    url: "https://pngplay.com/wp-content/uploads/3/Amazon-Web-Services-AWS-Logo-Transparent-PNG.png",
+    url: "https://th.bing.com/th/id/OIP.1w73xZIW0e9_WI3WGFdq8AHaDU?w=700&h=314&rs=1&pid=ImgDetMain",
   },
 ];
 
