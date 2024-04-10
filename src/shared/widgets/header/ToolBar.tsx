@@ -16,7 +16,7 @@ const ToolBar = () => {
       {user ? (
         <>
           <Link href={"/dashboard"} className="rounded-full">
-            <Image src={user?.imageUrl} alt="profile" width={70} height={70} />
+            <Image src={user?.imageUrl} alt="profile" width={50} height={50} className="rounded-full" />
           </Link>
         </>
       ) : (
