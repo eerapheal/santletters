@@ -2,6 +2,7 @@
 import { NextUIProvider } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
+import DashboardSideBar from "../widgets/dashboard/layout/sideBar/dashboardSideBar";
 interface ProviderProps {
   children: React.ReactNode;
 }
@@ -21,7 +22,10 @@ export default function Providers({ children }: ProviderProps) {
       pathname !== "/subscribe" &&
       pathname !== "/sign-up" ? (
         <div className="w-full flex">
-          <div className="w-[290px] h-screen overflow-y-scroll"></div>
+          <div className="w-[290px] border-r border-red-600 h-screen overflow-y-scroll">
+            <DashboardSideBar  />
+          </div>
+          {children}
         </div>
       ) : (
         <>{children}</> 
