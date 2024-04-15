@@ -1,5 +1,5 @@
 "use client";
-import PricingCard from "@/src/shared/components/pricingCard";
+import PricingCard from "@/src/shared/components/cards/pricingCard";
 
 import { Button } from "@nextui-org/react";
 import { useState } from "react";
