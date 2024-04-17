@@ -61,7 +61,6 @@ const SubscribersChart = () => {
           <span className="pl-2 text-sm opacity-[.7]">Subscribers</span>
         </div>
       </div>
-     
         <ResponsiveContainer width="100%" height={"85%"} className={"mt-5"}>
           <LineChart
             width={500}
