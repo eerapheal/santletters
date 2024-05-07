@@ -2,12 +2,23 @@
 import { ICONS } from "@/src/shared/utils/icons";
 import { useState } from "react";
 import { Button } from "@nextui-org/react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const Write = () => {
-  const [emailTitle, setEmailTitle] = useState(" ");
+  const [emailTitle, setEmailTitle] = useState("");
   const [open, setOpen] = useState(false);
+  const router = useRouter();
 
-  const handleCreate = () => {}
+  const handleCreate = () => {
+    if (emailTitle.length === 0) {
+      toast.error("Enter the email subject to continue!");
+    } else {
+      const formattedTitle = emailTitle.replace(/\s+/g, "-").replace(/&/g, "-");
+      router.push(`/dashboard/new-email?subject=${formattedTitle}`);
+    }
+  }
 
   return (
     <div className="w-full p-5 flex-wrap gap-6 relative">
