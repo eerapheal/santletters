@@ -1,15 +1,20 @@
 "use client";
 import { ICONS } from "@/src/shared/utils/icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@nextui-org/react";
-import Link from "next/link";
+import { useClerk } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { getEmails } from "@/src/actions/get.emails";
+import Link from "next/link";
 
 const Write = () => {
   const [emailTitle, setEmailTitle] = useState("");
   const [open, setOpen] = useState(false);
+  const [emails, setEmails] = useState([]);
+  
   const router = useRouter();
+  const { user } = useClerk()
 
   const handleCreate = () => {
     if (emailTitle.length === 0) {
@@ -19,6 +24,27 @@ const Write = () => {
       router.push(`/dashboard/new-email?subject=${formattedTitle}`);
     }
   }
+
+  useEffect(() => {
+    if (user) {
+      FindEmails();
+    }
+    
+  }, [user]);
+
+    const FindEmails = async () => {
+    await getEmails({ newsLetterOwnerId: user?.id! })
+      .then((res) => {
+        setEmails(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const deleteHanlder = async (id: string) => {
+      FindEmails();
+  };
 
   return (
     <div className="w-full p-5 flex-wrap gap-6 relative">
@@ -30,6 +56,35 @@ const Write = () => {
           <h5 className="text-2xl">Create New</h5>
         </span>
       </div>
+{/* email saved */}
+      {emails &&
+        emails.map((i: any) => {
+          const formattedTitle = i?.title
+            ?.replace(/\s+/g, "-")
+            .replace(/&/g, "-");
+            
+            return (
+              <div
+                key={i?._id}
+                className="w-[200px] h-[200px] z-[0] relative bg-slate-50 flex flex-col items-center justify-center rounded border cursor-pointer"
+              >
+                <span
+                  className="absolute block z-20 right-2 top-2 text-2xl cursor-pointer"
+                  onClick={() => deleteHanlder(i?._id)}
+                >
+                  {ICONS.delete}
+                </span>
+                <Link
+                  href={`/dashboard/new-email?subject=${formattedTitle}`}
+                  className="text-xl"
+                >
+                  {i.title}
+                </Link>
+              </div>
+            );
+            })}
+
+
       {open && (
         <div className="absolute flex items-center justify-center top-0 left-0 bg-[#00000028] h-screen w-full">
           <div className="w-[600px] p-5 bg-white rounded shadow relative">
