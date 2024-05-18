@@ -47,9 +47,9 @@ const Write = () => {
   };
 
   return (
-    <div className="w-full p-5 flex-wrap gap-6 relative">
+    <div className="w-full p-5 flex flex-wrap gap-6 relative">
       <div
-        className="w-[200px] h-200px] bg-slate-50 flex flex-col items-center justify-center rounded border cursor-pointer"
+        className="w-[200px] h-[200px] bg-slate-50 flex flex-col items-center justify-center rounded border cursor-pointer"
         onClick={() => setOpen(!open)}
       >
         <span className="text-2xl block text-center mb-3">
