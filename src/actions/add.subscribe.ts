@@ -2,8 +2,9 @@
 
 import Subscriber from "@/src/models/subscriber.model";
 import { connectDb } from "@/src/shared/libs/db";
-import { validateEmail } from "@/src/shared/utils/ZeroBounceApi";
 import { clerkClient } from "@clerk/nextjs";
+import * as EmailValidator from 'email-validator';
+
 
 export const subscribe = async ({
   email,
@@ -35,11 +36,10 @@ export const subscribe = async ({
       return { error: "Email already exists!" };
     }
 
-    // Validate email
-    const validationResponse = await validateEmail({ email });
-    if (validationResponse.status === "invalid") {
-      return { error: "Email not valid!" };
-    }
+   // Email validation using validator package
+   if (!EmailValidator.validate(email)) {
+    return { error: "Email not valid!" };
+  }
 
     // Create new subscriber
     const subscriber = await Subscriber.create({
@@ -48,6 +48,7 @@ export const subscribe = async ({
       source: "By SantGo website",
       status: "Subscribed",
     });
+   
     return subscriber;
   } catch (error) {
     console.error(error);
