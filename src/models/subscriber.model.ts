@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
-const subscriberShema = new Schema(
+const subscriberSchema = new Schema(
   {
     email: {
       type: String,
@@ -21,6 +21,7 @@ const subscriberShema = new Schema(
 );
 
 const Subscriber =
-  mongoose.models.Subscribers || mongoose.model("Subscribers", subscriberShema);
+  mongoose.models.Subscribers ||
+  mongoose.model("Subscribers", subscriberSchema);
 
 export default Subscriber;
