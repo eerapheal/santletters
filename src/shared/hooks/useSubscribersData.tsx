@@ -11,9 +11,9 @@ const useSubscribersData = () => {
   const { user } = useClerk();
 
   useEffect(() => {
-    if (user) {
+    
       GetSubscribers();
-    }
+    
   }, [user]);
 
   const GetSubscribers = async () => {

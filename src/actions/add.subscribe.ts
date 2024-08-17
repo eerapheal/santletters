@@ -3,8 +3,7 @@
 import Subscriber from "@/src/models/subscriber.model";
 import { connectDb } from "@/src/shared/libs/db";
 import { clerkClient } from "@clerk/nextjs";
-import * as EmailValidator from 'email-validator';
-
+import validator from 'validator';
 
 export const subscribe = async ({
   email,
@@ -23,7 +22,7 @@ export const subscribe = async ({
     const newsletterOwner = allUsers.find((i) => i.username === username);
 
     if (!newsletterOwner) {
-      throw Error("Username is not vaild!");
+      throw Error("Username is not valid!");
     }
 
     // check if subscribers already exists
@@ -36,10 +35,10 @@ export const subscribe = async ({
       return { error: "Email already exists!" };
     }
 
-   // Email validation using validator package
-   if (!EmailValidator.validate(email)) {
-    return { error: "Email not valid!" };
-  }
+    // Email validation using validator package
+    if (!validator.isEmail(email)) {
+      return { error: "Email not valid!" };
+    }
 
     // Create new subscriber
     const subscriber = await Subscriber.create({
@@ -48,8 +47,9 @@ export const subscribe = async ({
       source: "By SantGo website",
       status: "Subscribed",
     });
-   
-    return subscriber;
+    const plainSubscriber = subscriber.toObject();
+
+    return plainSubscriber;
   } catch (error) {
     console.error(error);
     return { error: "An error occurred while subscribing." };

@@ -9,24 +9,24 @@ const Page = () => {
   const [loading, setLoading] = useState(false);
 
   const searchParams = useSearchParams();
-  const username: string = searchParams.get("username")!;
+  const username = searchParams.get("username") || "User";
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    await subscribe({ email: value, username })
-      .then((res) => {
-        setLoading(false);
-        if (res.error) {
-          toast.error(res.error);
-        } else {
-          toast.success("You are successfully subscribed!");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
-      });
+    try {
+      const res = await subscribe({ email: value, username });
+      setLoading(false);
+      if (res.error) {
+        toast.error(res.error);
+      } else {
+        toast.success("You are successfully subscribed!");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("An error occurred. Please try again.");
+      setLoading(false);
+    }
     setValue("");
   };
 
@@ -43,7 +43,7 @@ const Page = () => {
       </div>
       <form
         className="flex w-full max-w-md border rounded overflow-hidden"
-        onSubmit={(e) => handleSubmit(e)}
+        onSubmit={handleSubmit}
       >
         <input
           type="email"
@@ -57,7 +57,7 @@ const Page = () => {
         <button
           type="submit"
           disabled={loading}
-          className="px-8 bg-blue-600 text-white font-bold py-4 rounded-r hover:bg-blue7600 focus:outline-none"
+          className="px-8 bg-blue-600 text-white font-bold py-4 rounded-r hover:bg-blue-700 focus:outline-none"
         >
           Subscribe
         </button>

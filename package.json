@@ -10,7 +10,12 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.10",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.18",
+    "@mui/x-data-grid": "^7.5.0",
     "@nextui-org/react": "^2.2.10",
+    "@types/validator": "^13.11.10",
     "framer-motion": "^11.0.15",
     "jotai": "^2.7.1",
     "mongoose": "^8.3.4",
@@ -22,7 +27,9 @@
     "react-hot-toast": "^2.4.1",
     "react-icons": "^5.0.1",
     "recharts": "^2.12.4",
-    "stargate-mongoose": "^0.5.6"
+    "stargate-mongoose": "^0.5.6",
+    "timeago.js": "^4.0.2",
+    "validator": "^13.12.0"
   },
   "devDependencies": {
     "@types/node": "^20",

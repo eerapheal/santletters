@@ -1,13 +1,21 @@
+"use client";
 import { ICONS } from "../../utils/icons";
+import useSubscribersAnalytics from "../../hooks/useSubscribersAnalytics";
 
 const DashboardOverView = () => {
+
+  const  { subscribersData, loading } = useSubscribersAnalytics();
+  const lastMonthSubscribers = !loading && subscribersData?.last7Months[subscribersData?.last7Months?.lenght -1];
+console.log([lastMonthSubscribers?.count])
   return (
     <div className="w-full xl:py-4 flex bg-white border rounded">
       {/* subscribers */}
       <div className="w-[33.33%] border-r p-5 text-lg">
         <h5 className="text-lg">Subscribers</h5>
         <div className="w-full flex items-center justify-between">
-          <span className="font-medium pt-2">205</span>
+          <span className="font-medium pt-2">
+            {loading ? "Wait" : lastMonthSubscribers?.count}
+          </span>
           <div className="h-[30px] flex p-2 items-center bg-[#DCFCE6] rounded-full">
             <span className="text-[#1fd863]">{ICONS.topArrow}</span>
             <span className="text-sm pl-1">10%</span>
